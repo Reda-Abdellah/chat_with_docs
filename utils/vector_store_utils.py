@@ -1,6 +1,11 @@
 # utils/vector_store_utils.py
 from langchain_chroma import Chroma
+import streamlit as st
+
 from utils.llm_utils import embeddings
+from utils.hash_utils import read_hashes, generate_hash, write_hash
+from config import CHROMA_PERSIST_DIR
+
 
 def get_vector_store(brain_name):
     """Get or create a Chroma vector store for a brain."""
@@ -17,13 +22,13 @@ def index_docs(documents, brain_name):
     for doc in documents:
         doc_hash = generate_hash(doc.page_content)
         if doc_hash in existing_hashes:
-            st.warning(f"Document with hash {doc_hash} already exists in the brain '{brain_name}'.")
+            # st.warning(f"Document with hash {doc_hash} already exists in the brain '{brain_name}'.")
             continue
         else:
             # Add the document to the vector store
             vector_store.add_documents([doc])
             write_hash(brain_name, doc_hash)  # Update the hash file
-            st.success(f"Document with hash {doc_hash} added to the brain '{brain_name}'.")
+            # st.success(f"Document with hash {doc_hash} added to the brain '{brain_name}'.")
     # vector_store.persist()
 
 def retrieve_docs(query, brain_name):

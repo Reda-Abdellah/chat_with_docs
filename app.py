@@ -1,12 +1,14 @@
 # app.py
 import streamlit as st
-from utils.file_utils import upload_pdf, list_uploaded_documents
+from utils.file_utils import upload_pdf, list_uploaded_documents, get_brain_directory, split_text, load_pdf
 from utils.vector_store_utils import index_docs, retrieve_docs
 from utils.llm_utils import answer_question
 from config import PDFS_BASE_DIR
+import os
 
 # Streamlit App
-st.title("Brain-Based Document Management")
+st.title("Chat with Documents")
+os.makedirs(PDFS_BASE_DIR, exist_ok=True)
 
 # Brain Selection or Creation
 brains = [d for d in os.listdir(PDFS_BASE_DIR) if os.path.isdir(os.path.join(PDFS_BASE_DIR, d))]

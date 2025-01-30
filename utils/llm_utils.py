@@ -2,9 +2,11 @@
 from langchain_ollama import OllamaEmbeddings
 from langchain_ollama.llms import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
+from config import OLLAMA_MODEL, OLLAMA_EMBEDDINGS_MODEL
+from prompts.chat_with_docs import template
 
 # Initialize embeddings and LLM
-embeddings = OllamaEmbeddings(model=OLLAMA_MODEL)
+embeddings = OllamaEmbeddings(model=OLLAMA_EMBEDDINGS_MODEL)
 model = OllamaLLM(model=OLLAMA_MODEL)
 
 def answer_question(question, documents):

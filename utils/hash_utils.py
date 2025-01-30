@@ -1,5 +1,8 @@
 # utils/hash_utils.py
 import hashlib
+import os
+from utils.file_utils import get_brain_directory
+from config import HASH_FILE
 
 def generate_hash(document_content):
     """Generate a SHA-256 hash for the document content."""
