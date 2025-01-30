@@ -149,9 +149,10 @@ Chroma for vector-based document storage.
 For questions or feedback, please open an issue on GitHub or contact the maintainer:
 
 Reda KAMRAOUI: redakamraoui@gmail.com
+GitHub: Reda-Abdellah
+
 Jan MARGETA
 
-GitHub: Redaabdellah
 
 
 
