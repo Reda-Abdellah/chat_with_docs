@@ -122,7 +122,7 @@ PDFPlumber: For loading and processing PDF documents.
 
 See requirements.txt for the full list of dependencies.
 
-### Contributing
+## Contributing
 Contributions are welcome! If you'd like to contribute, please follow these steps:
 
 Fork the repository.
@@ -133,10 +133,10 @@ Commit your changes and push to your branch.
 
 Submit a pull request with a detailed description of your changes.
 
-### License
+## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-### Acknowledgments
+## Acknowledgments
 Streamlit for the web framework.
 
 LangChain for NLP and document processing.
@@ -145,10 +145,11 @@ Ollama for embeddings and language models.
 
 Chroma for vector-based document storage.
 
-### Contact
+## Contact
 For questions or feedback, please open an issue on GitHub or contact the maintainer:
 
 Reda KAMRAOUI: redakamraoui@gmail.com
+Jan MARGETA
 
 GitHub: Redaabdellah
 
