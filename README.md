@@ -15,22 +15,16 @@ The application leverages:
 
 ## Project Structure
 brain-based-document-management/
-│
-├── app.py # Main Streamlit application
-├── config.py # Configuration constants
-├── utils/ # Utility functions
-│ ├── init.py
-│ ├── file_utils.py # File and directory operations
-│ ├── hash_utils.py # Hashing functions
-│ ├── llm_utils.py # LLM and embedding functions
-│ └── vector_store_utils.py # Chroma vector store operations
-│
-├── models/ # Data models (if needed)
-│ ├── init.py
-│ └── document.py # Document-related models
-│
-├── requirements.txt # Dependencies
-└── README.md # Project documentation
+- **app.py**: The main application file that handles the user interface and interactions.
+- **config.py**: Contains configuration settings for the application.
+- **requirements.txt**: Lists the Python dependencies required for the project.
+- **README.md**: Provides documentation and information about the project.
+- **utils/**: Directory containing utility modules for various functionalities.
+  - **file_utils.py**: Utilities for handling file uploads and processing.
+  - **vector_store_utils.py**: Utilities for managing the vector store.
+  - **llm_utils.py**: Utilities for interacting with the language model.
+- **data/**: Directory for storing uploaded documents, organized by brain names.
+
 
 
 ---
