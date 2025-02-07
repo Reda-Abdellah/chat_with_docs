@@ -1,9 +1,9 @@
 # app.py
 import streamlit as st
-from utils.file_utils import upload_pdf, list_uploaded_documents, get_brain_directory, split_text, load_pdf
+from utils.file_utils import upload_document, list_uploaded_documents, get_brain_directory, split_text, load_document
 from utils.vector_store_utils import index_docs, retrieve_docs
 from utils.llm_utils import answer_question
-from config import PDFS_BASE_DIR
+from config import DOCS_BASE_DIR, DOC_TYPES
 import os
 
 # Initialize session state for screen management
@@ -17,10 +17,10 @@ def go_to_select_brain():
 # First Screen: Select or Create a Brain
 def select_brain_screen():
     st.title("Chat with Documents")
-    os.makedirs(PDFS_BASE_DIR, exist_ok=True)
+    os.makedirs(DOCS_BASE_DIR, exist_ok=True)
 
     # Brain Selection or Creation
-    brains = [d for d in os.listdir(PDFS_BASE_DIR) if os.path.isdir(os.path.join(PDFS_BASE_DIR, d))]
+    brains = [d for d in os.listdir(DOCS_BASE_DIR) if os.path.isdir(os.path.join(DOCS_BASE_DIR, d))]
     selected_brain = st.selectbox("Select a Brain", brains, index=0 if brains else None)
     new_brain = st.text_input("Or create a new brain")
 
@@ -62,14 +62,14 @@ def brain_operations_screen():
 
     # PDF Upload and Processing
     uploaded_file = st.file_uploader(
-        "Upload PDF",
-        type="pdf",
-        accept_multiple_files=False
-    )
+    "Upload Document",
+    type=DOC_TYPES,
+    accept_multiple_files=False
+)
 
     if uploaded_file:
-        file_path = upload_pdf(uploaded_file, st.session_state.selected_brain)
-        documents = load_pdf(file_path)
+        file_path = upload_document(uploaded_file, st.session_state.selected_brain)
+        documents = load_document(file_path)
         chunked_documents = split_text(documents)
         index_docs(chunked_documents, st.session_state.selected_brain)
         st.rerun()  # Refresh the page to update the list of uploaded documents

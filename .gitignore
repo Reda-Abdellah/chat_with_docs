@@ -1,4 +1,5 @@
 chat
 chroma_langchain_db
 pdfs
+docs
 */__pycache__
